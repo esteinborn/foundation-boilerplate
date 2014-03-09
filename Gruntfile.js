@@ -2,10 +2,25 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+// Original version
+    // sass: {
+    //   options: {
+    //     includePaths: ['bower_components/foundation/scss']
+    //   },
+    //   dist: {
+    //     options: {
+    //       outputStyle: 'compressed',
+    //       sourceComments: 'map'
+    //     },
+    //     files: {
+    //       'css/app.css': 'scss/app.scss'
+    //     }
+    //   }
+    // },
     sass: {
-      options: {
-        includePaths: ['bower_components/foundation/scss']
-      },
+      // options: {
+      //   includePaths: ['bower_components/foundation/scss']
+      // },
       dist: {
         options: {
           outputStyle: 'compressed',
@@ -31,4 +46,4 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['sass']);
   grunt.registerTask('default', ['build','watch']);
-}
+};

@@ -10,7 +10,14 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "foundation/functions";
+// Orig Grunt Version
+//@import "foundation/functions";
+
+// This is the version we're using for while we use Prepros.
+// When we switch to grunt, we'll use the above code instead,
+// as the bower_components folder is build into grunt
+
+@import "../bower_components/foundation/scss/foundation/functions";
 
 // $experimental: true;
 
