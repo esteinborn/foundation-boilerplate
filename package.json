@@ -4,7 +4,7 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-watch": "*",
-    "grunt-sass": "~0.11.0",
+    "grunt-contrib-compass": "^0.7.2",
     "matchdep": "*"
   }
 }

@@ -2,29 +2,25 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-// Original version
-    // sass: {
-    //   options: {
-    //     includePaths: ['bower_components/foundation/scss']
-    //   },
-    //   dist: {
-    //     options: {
-    //       outputStyle: 'compressed',
-    //       sourceComments: 'map'
-    //     },
-    //     files: {
-    //       'css/app.css': 'scss/app.scss'
-    //     }
-    //   }
-    // },
-    sass: {
-      // options: {
-      //   includePaths: ['bower_components/foundation/scss']
-      // },
+    compass: {
+      options: {
+        importPath: ['bower_components/foundation/scss'],
+        sassDir: 'scss',
+        cssDir: 'css',
+        imagesDir: 'img',
+        javascriptsDir: 'js',
+        outputStyle: 'nested',
+        relativeAssets: true,
+        noLineComments: false
+      },
+      dev: {
+        files: {
+          'css/app.css': 'scss/app.scss'
+        }
+      },
       dist: {
         options: {
           outputStyle: 'compressed',
-          sourceComments: 'map'
         },
         files: {
           'css/app.css': 'scss/app.scss'
@@ -37,13 +33,13 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['compass:dev']
       }
     }
   });
 
   require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('build', ['sass']);
-  grunt.registerTask('default', ['build','watch']);
-};
+  grunt.registerTask('build', ['compass:prod']);
+  grunt.registerTask('default', ['compass:dev','watch']);
+}
